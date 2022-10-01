@@ -15,9 +15,30 @@ public class ProfanityFiler {
 
     ArrayList<String> tweetList = new ArrayList<String>(); // arrayList to storage the tweet's inputs
     tweetList.add(input.next());
+
     // Iterator<String> input = tweetList.iterator();
 
-    while (input.hasNext()) {}
+    while (input.hasNextLine()) {
+      // String crazytweet = input.next();
+
+      // crazytweet.equalsIgnoreCase("hate"); // trying to compare the hashmap but not working
+      ///characterString ??
+      String crazytweet = input.nextLine();
+
+      int index = 0;
+      for (int i = 0; i < crazytweet.length(); i++) {
+        if (index == characterString.length) {
+          index = 0;
+        }
+        crazytweet += characterString[index];
+        index++;
+      }
+      tweetList.add(crazytweet.toLowerCase());
+
+      {
+        System.out.println(tweetList.add(crazytweet.toLowerCase()));
+      }
+    }
 
     HashMap<String, String> swearWords = new HashMap<String, String>();
 
