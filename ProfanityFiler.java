@@ -13,6 +13,7 @@ public class ProfanityFiler {
 
     String[] splitTweet = tweet.split(" "); // // split the string
     String[] characterString = { "*", "&", "#", "$", "%" }; // storage the characters
+    // String [] badWords =
 
     ArrayList<String> tweetList = new ArrayList<String>(); // arrayList to storage the tweet's inputs
     tweetList.add(input.nextLine());
@@ -21,6 +22,8 @@ public class ProfanityFiler {
 
     while (input.hasNextLine()) { // Working ;) , scanner input is having loads of strings but not replacing all swearwords and printing an extra line.
       String item = input.nextLine();
+      // String itemoutput =input.nextLine();
+
       if (item.equals("hate")) {/* still trying to solve it */
         System.out.println("*&#$%");
       } else {
