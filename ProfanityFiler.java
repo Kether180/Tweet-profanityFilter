@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 // import java.util.Iterator;
+
 import java.util.Scanner;
 
 public class ProfanityFiler {
@@ -14,30 +15,15 @@ public class ProfanityFiler {
     String[] characterString = { "*", "&", "#", "$", "%" }; // storage the characters
 
     ArrayList<String> tweetList = new ArrayList<String>(); // arrayList to storage the tweet's inputs
-    tweetList.add(input.next());
+    tweetList.add(input.nextLine());
 
     // Iterator<String> input = tweetList.iterator();
 
-    while (input.hasNextLine()) {
-      // String crazytweet = input.next();
-
-      // crazytweet.equalsIgnoreCase("hate"); // trying to compare the hashmap but not working
-      ///characterString ??
-      String crazytweet = input.nextLine();
-
-      int index = 0;
-      for (int i = 0; i < crazytweet.length(); i++) {
-        if (index == characterString.length) {
-          index = 0;
-        }
-        crazytweet += characterString[index];
-        index++;
-      }
-      tweetList.add(crazytweet.toLowerCase());
-
-      {
-        System.out.println(tweetList.add(crazytweet.toLowerCase()));
-      }
+    while (input.hasNextLine()) { // Working ;) , scanner input is having loads of strings but not replacing all swearwords and printing an extra line.
+      String item = input.nextLine();
+      if (item.equals("hate")) {/* still trying to solve it */
+        input.remove();
+      } else System.out.println(item);
     }
 
     HashMap<String, String> swearWords = new HashMap<String, String>();
@@ -70,3 +56,6 @@ public class ProfanityFiler {
 }
 // hate fudgesicles
 // I bleeping hate those fudgesicles.
+// I cannot ear another FRICKing  meatball
+// I wonder how much fruit?  is actually a fruitcake?  fruit?
+// the COUNT
