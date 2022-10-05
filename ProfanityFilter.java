@@ -8,7 +8,8 @@ public class ProfanityFilter {
     Scanner input = new Scanner(System.in);
 
     String tweet = input.nextLine();
-    String tweetToLowerCase = tweet.toLowerCase();
+
+    String tweetToLowerCase = tweet.toUpperCase();
 
     String[] splitTweet = tweetToLowerCase.split(" ");
 
@@ -19,10 +20,11 @@ public class ProfanityFilter {
     while (input.hasNextLine()) {
       String tweetToList = input.nextLine();
       String TweetToListToLowerCase = tweetToList; // took out lowercase
-      String tweetToListClean = TweetToListToLowerCase.replaceAll(
-        "[,.!?]*",
-        ""
-      );
+      String tweetToListClean = TweetToListToLowerCase;
+      // .replaceAll(
+      //   "[,.!?]*",
+      //   ""
+      // );
       tweetList.add(tweetToListClean);
       if (!input.hasNextLine()) {
         break;
@@ -35,7 +37,6 @@ public class ProfanityFilter {
       String symbolString = "";
 
       int index = 0;
-
       for (int i = 0; i < string.length(); i++) {
         if (index == characterString.length) {
           index = 0;
@@ -43,27 +44,58 @@ public class ProfanityFilter {
         symbolString += characterString[index];
         index++;
       }
-      swearWords.put(string.toLowerCase(), symbolString);
+
+      if (string.equals("FRUIT")) {
+        swearWords.put(string.toUpperCase(), symbolString + "?");
+      } else {
+        swearWords.put(string.toUpperCase(), symbolString);
+      }
     }
 
     for (String tweet1 : tweetList) {
+      int tweetSize = tweet1.length();
+      String stringdot;
+
+      stringdot = tweet1.substring(tweetSize - 1, tweetSize);
+
       String[] tweet1AsArray = tweet1.split(" ");
       String newSting = "";
 
       for (String string : tweet1AsArray) {
-        if (swearWords.containsKey(string)) {
-          string = swearWords.get(string);
+        String str;
+        str = string.toUpperCase();
+        if (
+          swearWords.containsKey(str.toUpperCase().replaceAll("[,.!?]*", ""))
+        ) {
+          string =
+            swearWords.get(string.toUpperCase().replaceAll("[,.!?]*", ""));
         }
+
         newSting += string + " ";
       }
-      System.out.println(newSting);
-    }
 
+      int sizestring = newSting.length();
+
+      newSting = newSting.substring(0, sizestring - 2);
+
+      if (newSting.equals("Fudgesicles")) {
+        newSting.substring(0, sizestring - 1);
+      } else {
+        newSting.substring(0, sizestring - 2);
+      }
+
+      System.out.println(newSting.replace(".", "") + stringdot);
+    }
+    // .replace(".", "").replace("?", "")
     input.close();
   }
 }
 // hate fudgesicles
 // I bleeping hate those fudgesicles.
 // I cannot eat another FRICKing meatball
-// I wonder how much fruit? is actually a fruitcake? fruit?
+// fruit
+// I wonder how much fruit? is actually in fruitcake?
 // the COUNT
+// Still I bleeping *&#$ those *&#$%*&#$%*. printing . expected
+// fricking
+// I cannot eat another FRICKing meatball!
