@@ -18,7 +18,7 @@ public class ProfanityFilter {
 
     while (input.hasNextLine()) {
       String tweetToList = input.nextLine();
-      String TweetToListToLowerCase = tweetToList.toLowerCase();
+      String TweetToListToLowerCase = tweetToList; // took out lowercase
       String tweetToListClean = TweetToListToLowerCase.replaceAll(
         "[,.!?]*",
         ""
@@ -50,15 +50,13 @@ public class ProfanityFilter {
       String[] tweet1AsArray = tweet1.split(" ");
       String newSting = "";
 
-      // String charac = ".,!?"; Tried to add it to this for loop in order to replace
-      // words with those characters at the end and it doesn't work
       for (String string : tweet1AsArray) {
-        if (swearWords.containsKey(string)) { // || swearWords.containsKey(charac)
+        if (swearWords.containsKey(string)) {
           string = swearWords.get(string);
         }
         newSting += string + " ";
       }
-      System.out.println(newSting.replace(".", "$")); // substitute words with .,!? with *&#$ still finding out
+      System.out.println(newSting);
     }
 
     input.close();
