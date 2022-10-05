@@ -76,7 +76,7 @@ public class ProfanityFilter {
 
       int sizestring = newSting.length();
 
-      newSting = newSting.substring(0, sizestring - 2);
+      // newSting = newSting.substring(0, sizestring - 2);
 
       if (newSting.equals("Fudgesicles")) {
         newSting.substring(0, sizestring - 1);
@@ -90,12 +90,15 @@ public class ProfanityFilter {
     input.close();
   }
 }
+// Input 1
 // hate fudgesicles
 // I bleeping hate those fudgesicles.
-// I cannot eat another FRICKing meatball
-// fruit
-// I wonder how much fruit? is actually in fruitcake?
-// the COUNT
-// Still I bleeping *&#$ those *&#$%*&#$%*. printing . expected
+// Input 2
 // fricking
 // I cannot eat another FRICKing meatball!
+// Input 3
+// fruit
+// I wonder how much fruit? is actually in a fruitcake?
+// Input 4
+// the COUNT
+// Still I bleeping *&#$ those *&#$%*&#$%*.
