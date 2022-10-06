@@ -1,5 +1,3 @@
-=======
-
 ## ProfanityFilter
 
 Some of your peers have suggested that you swear too much on Twitter. You have a sneaking suspicion that they are right.
